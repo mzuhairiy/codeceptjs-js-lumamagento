@@ -1,26 +1,18 @@
 Feature('Create an account');
 
 const {validData} = require('../data/createAccountData');
+const {faker} = require('@faker-js/faker');
 
 Before(({I}) => {
     I.gotoSignup();
 })
 
-Scenario('successfully created an account with valid data',  ({ I, createAccountPage }) => {
-    // I.amOnPage('/')
-    // I.see('Sign In')
-    // I.click('Create an Account')
-    // I.see('Create New Customer Account')
-    // I.fillField('firstname', 'Cecep')
-    // I.fillField('lastname', 'Volkanovski')
-    // I.fillField('#email_address', 'ccepey@volk.com')
-    // I.fillField('#password', 'Abcd@123')
-    // I.fillField('#password-confirmation', 'Abcd@123')
-    // I.click('Create an Account', '.primary')
-    // I.waitForElement('.message-success.success.message')
-    // I.see('Thank you for registering with Main Website Store.', '.message-success.success.message')
+Scenario('successfully created an account with valid data',  ({ I, createAccountPage}) => {
+    //const randomName = faker.name.firstname();
+    const randomEmail = faker.internet.email();
+
     createAccountPage.fillFields(validData);
-    I.fillField(createAccountPage.fields.email,'that@aessm.com');
+    I.fillField(createAccountPage.fields.email, randomEmail);
     createAccountPage.sendForm();
     I.waitForElement('.message-success.success.message');
     I.see('Thank you for registering with Main Website Store.', '.message-success.success.message')

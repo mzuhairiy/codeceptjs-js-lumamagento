@@ -20,9 +20,14 @@ exports.config = {
       show: true
     }
   },
+  plugins: {
+    fakerTransform: {
+      enabled: true
+    },
+  },
   include: {
     I: './steps_file.js',
     createAccountPage: "./pages/create_account.js",
   },
-  name: 'codeceptjs-js-practice'
+  name: 'codeceptjs-js-lumamagento'
 }

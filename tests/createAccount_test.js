@@ -6,7 +6,7 @@ Before(({I}) => {
     I.gotoSignup();
 })
 
-Scenario('should successfully created an account',  ({ I, createAccountPage }) => {
+Scenario('successfully created an account with valid data',  ({ I, createAccountPage }) => {
     // I.amOnPage('/')
     // I.see('Sign In')
     // I.click('Create an Account')
@@ -20,7 +20,16 @@ Scenario('should successfully created an account',  ({ I, createAccountPage }) =
     // I.waitForElement('.message-success.success.message')
     // I.see('Thank you for registering with Main Website Store.', '.message-success.success.message')
     createAccountPage.fillFields(validData);
+    I.fillField(createAccountPage.fields.email,'that@aesm.com');
     createAccountPage.sendForm();
     I.waitForElement('.message-success.success.message');
     I.see('Thank you for registering with Main Website Store.', '.message-success.success.message')
 });
+
+Scenario('failed created an account due to empty firstname', ({I, createAccountPage}) => {
+    createAccountPage.fillFields(validData);
+    I.fillField(createAccountPage.fields.firstname,'');
+    createAccountPage.sendForm();
+    I.waitForElement(createAccountPage.emptyFirstname);
+    I.see('This is a required field.', createAccountPage.emptyFirstname);
+})

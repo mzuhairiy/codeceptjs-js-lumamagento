@@ -1,7 +1,7 @@
 let validData={
     firstname: 'Cecep',
     lastname: 'Dominic',
-    email: 'Ddom@inc.com',
+    email: 'Dam@inc.com',
     password1: 'Qwer1234!',
     password2: 'Qwer1234!'
 }

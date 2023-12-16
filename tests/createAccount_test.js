@@ -20,7 +20,7 @@ Scenario('successfully created an account with valid data',  ({ I, createAccount
     // I.waitForElement('.message-success.success.message')
     // I.see('Thank you for registering with Main Website Store.', '.message-success.success.message')
     createAccountPage.fillFields(validData);
-    I.fillField(createAccountPage.fields.email,'that@aesm.com');
+    I.fillField(createAccountPage.fields.email,'that@aessm.com');
     createAccountPage.sendForm();
     I.waitForElement('.message-success.success.message');
     I.see('Thank you for registering with Main Website Store.', '.message-success.success.message')

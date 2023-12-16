@@ -10,6 +10,7 @@ module.exports = {
     password2: '#password-confirmation'
   },
   submitBtn: 'button.action.submit.primary',
+
   //negative locators
   emptyFirstname: '#firstname-error',
   emptyLastname: '#lastname-error',
@@ -19,11 +20,18 @@ module.exports = {
   lengthValidation: '//*[@id="password-error" and contains(text(), "Minimum length of this field must be equal or greater than 8 symbols.")]',
   charValidation: '//*[@id="password-error" and contains(text(), "Minimum of different classes of characters in password is 3. Classes of characters: Lower Case, Upper Case, Digits, Special Characters.")]',
   passNotmatch: '//*[@id="password-confirmation-error" and contains(text(), "Please enter the same value again.")]',
+
   //password strength
+  passwordStrength:{
   strong: '//*[@id="password-strength-meter-label" and contains(text(), "Strong")]',
+  medium: '//*[@id="password-strength-meter-label" and contains(text(), "Medium")]',
   weak: '//*[@id="password-strength-meter-label" and contains(text(), "Weak")]',
   veryStrong: '//*[@id="password-strength-meter-label" and contains(text(), "Very Strong")]',
   noPassword: '//*[@id="password-strength-meter-label" and contains(text(), "No Password")]',
+},
+  //alert after submit
+  successAlert: '.message-success.success.message',
+  registeredEmailAlert: '.message-error.error.message', //There is already an account with this email address. If you are sure that it is your email address, click here to get your password and access your account.
   //methods
   fillFields({
     firstname,

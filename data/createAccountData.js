@@ -1,4 +1,4 @@
-let validData={
+let newUser={
     firstname: 'Cecep',
     lastname: 'Dominic',
     email: 'Dam@inc.com',
@@ -7,5 +7,5 @@ let validData={
 }
 
 module.exports={
-    validData
+    newUser
 }

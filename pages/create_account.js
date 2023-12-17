@@ -1,7 +1,7 @@
 const { I } = inject();
 
 module.exports = {
-  //locators
+  //forms
   fields: {
     firstname: '#firstname',
     lastname: '#lastname',

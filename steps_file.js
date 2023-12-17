@@ -8,6 +8,12 @@ module.exports = function() {
       this.amOnPage('/');
       this.click('Create an Account')
       this.see('Create New Customer Account')
+    },
+
+    gotoLogin:function(){
+      this.amOnPage('/');
+      this.click('Sign In')
+      this.see('Customer Login')
     }
   });
 }

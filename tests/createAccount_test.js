@@ -1,26 +1,25 @@
 Feature('Create an account');
 
-const {validData} = require('../data/createAccountData');
+const {newUser} = require('../data/createAccountData');
 const {faker} = require('@faker-js/faker');
 const randomEmail = faker.internet.email();
+
 Before(({I}) => {
     I.gotoSignup();
 })
 
 /* Positive scenario with valid data */
 Scenario('successfully created an account with valid data',  ({ I, createAccountPage}) => {
-    //const randomName = faker.name.firstname();
-    createAccountPage.fillFields(validData);
+    createAccountPage.fillFields(newUser);
     I.fillField(createAccountPage.fields.email, randomEmail);
     createAccountPage.sendForm();
     I.waitForElement(createAccountPage.successAlert);
     I.see('Thank you for registering with Main Website Store.', createAccountPage.successAlert)
-    pause();
 })
 
 // /* Negative Scenario */
 // Scenario('failed to create an account with registered email', ({I, createAccountPage}) => {
-//     createAccountPage.fillFields(validData);
+//     createAccountPage.fillFields(newUser);
 //     I.fillField(createAccountPage.fields.email,'Dam@inc.com');
 //     createAccountPage.sendForm();
 //     I.waitForElement(createAccountPage.registeredEmailAlert);
@@ -28,7 +27,7 @@ Scenario('successfully created an account with valid data',  ({ I, createAccount
 // })
 
 // Scenario('failed to create an account due to empty firstname', ({I, createAccountPage}) => {
-//     createAccountPage.fillFields(validData);
+//     createAccountPage.fillFields(newUser);
 //     I.fillField(createAccountPage.fields.firstname,'');
 //     createAccountPage.sendForm();
 //     I.waitForElement(createAccountPage.emptyFirstname);
@@ -36,7 +35,7 @@ Scenario('successfully created an account with valid data',  ({ I, createAccount
 // })
 
 // Scenario('failed to create an account due to empty lastname', ({I, createAccountPage}) => {
-//     createAccountPage.fillFields(validData);
+//     createAccountPage.fillFields(newUser);
 //     I.fillField(createAccountPage.fields.lastname,'');
 //     createAccountPage.sendForm();
 //     I.waitForElement(createAccountPage.emptyLastname);
@@ -44,7 +43,7 @@ Scenario('successfully created an account with valid data',  ({ I, createAccount
 // })
 
 // Scenario('failed to create an account due to empty email', ({I, createAccountPage}) => {
-//     createAccountPage.fillFields(validData);
+//     createAccountPage.fillFields(newUser);
 //     I.fillField(createAccountPage.fields.email,'');
 //     createAccountPage.sendForm();
 //     I.waitForElement(createAccountPage.emptyEmail);
@@ -52,7 +51,7 @@ Scenario('successfully created an account with valid data',  ({ I, createAccount
 // })
 
 // Scenario('failed to create an account due to empty password', ({I, createAccountPage}) => {
-//     createAccountPage.fillFields(validData);
+//     createAccountPage.fillFields(newUser);
 //     I.fillField(createAccountPage.fields.password1,'');
 //     createAccountPage.sendForm();
 //     I.waitForElement(createAccountPage.emptyPassword1);
@@ -61,7 +60,7 @@ Scenario('successfully created an account with valid data',  ({ I, createAccount
 // })
 
 // Scenario('failed to create an account due to empty confirm password', ({I, createAccountPage}) => {
-//     createAccountPage.fillFields(validData);
+//     createAccountPage.fillFields(newUser);
 //     I.fillField(createAccountPage.fields.password2,'');
 //     createAccountPage.sendForm();
 //     I.waitForElement(createAccountPage.emptyPassword2);
@@ -71,7 +70,7 @@ Scenario('successfully created an account with valid data',  ({ I, createAccount
 
 // /* Password Scenario */
 // Scenario('failed to create an account due to insufficient password length', ({I, createAccountPage}) => {
-//     createAccountPage.fillFields(validData);
+//     createAccountPage.fillFields(newUser);
 //     I.fillField(createAccountPage.fields.password1,'@1Bcdef');
 //     I.see('Weak', createAccountPage.passwordStrength.weak);
 //     createAccountPage.sendForm();
@@ -80,7 +79,7 @@ Scenario('successfully created an account with valid data',  ({ I, createAccount
 // })
 
 // Scenario('failed to create an account due to inappropriate password combination', ({I, createAccountPage}) => {
-//     createAccountPage.fillFields(validData);
+//     createAccountPage.fillFields(newUser);
 //     I.fillField(createAccountPage.fields.password1,'12345abcd');
 //     I.see('Weak', createAccountPage.passwordStrength.weak);
 //     createAccountPage.sendForm();
@@ -89,7 +88,7 @@ Scenario('successfully created an account with valid data',  ({ I, createAccount
 // })
 
 // Scenario('failed to create an account due to mismatch passwords', ({I, createAccountPage}) => {
-//     createAccountPage.fillFields(validData);
+//     createAccountPage.fillFields(newUser);
 //     I.fillField(createAccountPage.fields.password1,'@123Abcde');
 //     I.see('Medium', createAccountPage.passwordStrength.medium);
 //     I.fillField(createAccountPage.fields.password2,'@123Abcd');

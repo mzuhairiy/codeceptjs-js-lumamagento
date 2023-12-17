@@ -28,6 +28,7 @@ exports.config = {
   include: {
     I: './steps_file.js',
     createAccountPage: "./pages/create_account.js",
+    signinPage: "./pages/signin.js",
   },
   name: 'codeceptjs-js-lumamagento'
 }
